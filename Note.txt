@@ -1,0 +1,14 @@
+* Component:
+    - Stateful Component: class
+    - Stateless Component: function
+
+
+
+
+
+
+    - Baitap1 Component
+        + Header Component
+        + Nav Component
+        + Content Component
+        + Footer Component
