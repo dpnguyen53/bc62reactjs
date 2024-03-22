@@ -1,14 +1,17 @@
+
+====== Buổi 1 ======
 * Component:
-    - Stateful Component: class
-    - Stateless Component: function
+    - Stateful Component: class - logic
+    - Stateless Component: function - UI - logic (hooks)
+
+
+==== Buổi 2 =====
+    Rendering Elements: {}
+    Rendering Condition
+    Handling Events: onClick
+    State: Component render lại lần mới => render chạy lại khi state thay đổi
 
 
 
-
-
-
-    - Baitap1 Component
-        + Header Component
-        + Nav Component
-        + Content Component
-        + Footer Component
+    
+    List keys
