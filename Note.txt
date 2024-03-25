@@ -10,8 +10,10 @@
     Rendering Condition
     Handling Events: onClick
     State: Component render lại lần mới => render chạy lại khi state thay đổi
-
-
-
     
+
+==== Buổi 3 =====
     List keys
+    Communicate
+        - Props: data truyền từ component cha => component con
+        - Lifting state up: data truyền từ component con => component cha

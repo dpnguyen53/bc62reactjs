@@ -4,7 +4,11 @@ import "./App.css";
 // import Baitap2 from "./baitap2";
 // import RenderingElements from "./rendering-elements";
 // import HandlingEvents from "./handling-events";
-import State from "./state";
+// import State from "./state";
+// import ExampleState from "./state/example";
+// import ListKeys from "./list-keys";
+// import Communicate from "./communicate";
+import LiftingStateUpCart from "./shopping-cart";
 
 function App() {
   return (
@@ -14,7 +18,11 @@ function App() {
       {/* <Baitap3 /> */}
       {/* <RenderingElements /> */}
       {/* <HandlingEvents /> */}
-      <State />
+      {/* <State /> */}
+      {/* <ExampleState /> */}
+      {/* <ListKeys /> */}
+      {/* <Communicate /> */}
+      <LiftingStateUpCart />
     </>
   );
 }
