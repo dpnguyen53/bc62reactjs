@@ -9,10 +9,85 @@ export default class LiftingStateUpCart extends Component {
 
     this.state = {
       listProduct: data,
+      productDetail: null,
+      listCart: [],
     };
   }
 
+  // nhận data từ component SanPham truyền ra
+  handleRenderDetailProduct = (product) => {
+    this.setState({
+      productDetail: product,
+    });
+  };
+
+  findIndexProduct = (maSP) =>
+    this.state.listCart.findIndex((product) => product.maSP === maSP);
+
+  // nhận data từ component SanPham truyền ra
+  handleAddCart = (product) => {
+    const productCart = {
+      maSP: product.maSP,
+      tenSP: product.tenSP,
+      hinhAnh: product.hinhAnh,
+      giaBan: product.giaBan,
+      soLuong: 1,
+    };
+
+    // clone lại array listCart từ state
+    const listCartClone = [...this.state.listCart];
+    const index = this.findIndexProduct(productCart.maSP);
+    if (index !== -1) {
+      // Tồn tại => update soLuong
+      listCartClone[index].soLuong += 1;
+    } else {
+      // K Tồn tại => thêm
+      listCartClone.push(productCart);
+    }
+
+    this.setState({
+      listCart: listCartClone,
+    });
+  };
+
+  // nhận data từ component Modal truyền ra
+  handleDeleteProduct = (maSP) => {
+    const listCartFilter = this.state.listCart.filter(
+      (product) => product.maSP !== maSP
+    );
+    this.setState({
+      listCart: listCartFilter,
+    });
+  };
+
+  handleUpdateQty = (maSP, isPlus) => {
+    const listCartClone = [...this.state.listCart];
+    const index = this.findIndexProduct(maSP);
+    if (index !== -1) {
+      if (isPlus) {
+        // tang sl
+        listCartClone[index].soLuong += 1;
+      } else {
+        // giam sl
+        if (listCartClone[index].soLuong > 1) {
+          listCartClone[index].soLuong -= 1;
+        }
+      }
+      this.setState({
+        listCart: listCartClone,
+      });
+    }
+  };
+
+  totalQty = () => {
+    return this.state.listCart.reduce(
+      (total, product) => (total += product.soLuong),
+      0
+    );
+  };
+
   render() {
+    const { productDetail, listCart } = this.state;
     return (
       <div>
         <h3 className="title">Bài tập giỏ hàng</h3>
@@ -22,14 +97,22 @@ export default class LiftingStateUpCart extends Component {
             data-toggle="modal"
             data-target="#modelId"
           >
-            Giỏ hàng (0)
+            Giỏ hàng ({this.totalQty()})
           </button>
         </div>
-        <DanhSachSanPham listProduct={this.state.listProduct} />
-        <Modal />
+        <DanhSachSanPham
+          listProduct={this.state.listProduct}
+          getProduct={this.handleRenderDetailProduct}
+          getProductAddCart={this.handleAddCart}
+        />
+        <Modal
+          listCart={listCart}
+          getProductDelete={this.handleDeleteProduct}
+          getProductUpdateQty={this.handleUpdateQty}
+        />
         <div className="row">
           <div className="col-sm-5">
-            <img className="img-fluid" src="./img/vsphone.jpg" alt="" />
+            <img className="img-fluid" src={productDetail?.hinhAnh} alt="" />
           </div>
           <div className="col-sm-7">
             <h3>Thông số kỹ thuật</h3>
@@ -37,27 +120,27 @@ export default class LiftingStateUpCart extends Component {
               <tbody>
                 <tr>
                   <td>Màn hình</td>
-                  <td>AMOLED, FHD+ 2232 x 1080 pixels</td>
+                  <td>{productDetail?.manHinh}</td>
                 </tr>
                 <tr>
                   <td>Hệ điều hành</td>
-                  <td>Android 9.0 (Pie)</td>
+                  <td>{productDetail?.heDieuHanh}</td>
                 </tr>
                 <tr>
                   <td>Camera trước</td>
-                  <td>20 MP</td>
+                  <td>{productDetail?.cameraTruoc}</td>
                 </tr>
                 <tr>
                   <td>Camera sau</td>
-                  <td>Chính 48 MP & Phụ 8 MP, 5 MP</td>
+                  <td>{productDetail?.cameraSau}</td>
                 </tr>
                 <tr>
                   <td>RAM</td>
-                  <td>4 GB</td>
+                  <td>{productDetail?.ram}</td>
                 </tr>
                 <tr>
                   <td>ROM</td>
-                  <td>6 GB</td>
+                  <td>{productDetail?.rom}</td>
                 </tr>
               </tbody>
             </table>
