@@ -8,7 +8,8 @@ import "./App.css";
 // import ExampleState from "./state/example";
 // import ListKeys from "./list-keys";
 // import Communicate from "./communicate";
-import LiftingStateUpCart from "./shopping-cart";
+// import LiftingStateUpCart from "./shopping-cart";
+import Home from "./user-management";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       {/* <ExampleState /> */}
       {/* <ListKeys /> */}
       {/* <Communicate /> */}
-      <LiftingStateUpCart />
+      {/* <LiftingStateUpCart /> */}
+      <Home />
     </>
   );
 }
