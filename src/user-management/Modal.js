@@ -58,6 +58,7 @@ class Modal extends Component {
                     className="form-control"
                     name="username"
                     onChange={this.handleOnchange}
+                    value={this.state.username}
                   />
                 </div>
                 <div className="form-group">
@@ -67,6 +68,7 @@ class Modal extends Component {
                     className="form-control"
                     name="fullname"
                     onChange={this.handleOnchange}
+                    value={this.state.fullname}
                   />
                 </div>
                 <div className="form-group">
@@ -76,6 +78,7 @@ class Modal extends Component {
                     className="form-control"
                     name="email"
                     onChange={this.handleOnchange}
+                    value={this.state.email}
                   />
                 </div>
                 <div className="form-group">
@@ -85,6 +88,7 @@ class Modal extends Component {
                     className="form-control"
                     name="phoneNumber"
                     onChange={this.handleOnchange}
+                    value={this.state.phoneNumber}
                   />
                 </div>
                 <div className="form-group">
@@ -93,6 +97,7 @@ class Modal extends Component {
                     className="form-control"
                     name="type"
                     onChange={this.handleOnchange}
+                    value={this.state.type}
                   >
                     <option>USER</option>
                     <option>VIP</option>

@@ -11,6 +11,7 @@ class Home extends Component {
     this.state = {
       listUsers: data,
       keyword: "",
+      editUser: null,
     };
   }
 
@@ -52,6 +53,12 @@ class Home extends Component {
     );
   };
 
+  handleEditUser = (user) => {
+    this.setState({
+      editUser: user,
+    });
+  };
+
   render() {
     // filter
     const { keyword, listUsers } = this.state;
@@ -72,7 +79,11 @@ class Home extends Component {
             Add User
           </button>
         </div>
-        <Users users={usersFilter} getUserDelete={this.handleDeleteUser} />
+        <Users
+          users={usersFilter}
+          getUserDelete={this.handleDeleteUser}
+          getEditUser={this.handleEditUser}
+        />
         <Modal getUserSubmit={this.handleSubmitUser} />
       </div>
     );
