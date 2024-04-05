@@ -26,3 +26,5 @@
     Form React
 
 ==== Buổi 6 =====
+    LifeCycle
+    Redux: Store

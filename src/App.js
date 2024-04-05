@@ -9,7 +9,8 @@ import "./App.css";
 // import ListKeys from "./list-keys";
 // import Communicate from "./communicate";
 // import LiftingStateUpCart from "./shopping-cart";
-import Home from "./user-management";
+// import Home from "./user-management";
+import Home from "./user-management-redux";
 
 function App() {
   return (

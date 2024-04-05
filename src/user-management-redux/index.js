@@ -90,7 +90,7 @@ class Home extends Component {
           </button>
         </div>
         <Users
-          users={usersFilter}
+          // users={usersFilter}
           getUserDelete={this.handleDeleteUser}
           getEditUser={this.handleEditUser}
         />
