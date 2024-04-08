@@ -28,3 +28,6 @@
 ==== Buổi 6 =====
     LifeCycle
     Redux: Store
+
+==== Buổi 7 =====
+    Usermanagement Redux

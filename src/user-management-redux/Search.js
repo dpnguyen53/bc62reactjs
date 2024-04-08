@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { actSearch } from "./../store/actions";
 
 class Search extends Component {
   handleKeyWord = (event) => {
     const keyword = event.target.value;
-    this.props.getKeyWord(keyword);
+    this.props.search(keyword);
   };
 
   render() {
@@ -17,4 +19,12 @@ class Search extends Component {
   }
 }
 
-export default Search;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    search: (keyword) => {
+      dispatch(actSearch(keyword));
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Search);
