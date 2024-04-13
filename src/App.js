@@ -1,4 +1,6 @@
 import "./App.css";
+import FormValidation from "./form-validation/FormValidation";
+import LifeCycle from "./lifecycle/LifeCycle";
 // import Baitap3 from "./baitap3";
 // import Baitap1 from "./baitap1";
 // import Baitap2 from "./baitap2";
@@ -25,7 +27,9 @@ function App() {
       {/* <ListKeys /> */}
       {/* <Communicate /> */}
       {/* <LiftingStateUpCart /> */}
-      <Home />
+      {/* <Home /> */}
+      {/* <FormValidation /> */}
+      <LifeCycle />
     </>
   );
 }
