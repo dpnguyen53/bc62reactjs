@@ -22,7 +22,7 @@ export default class FormValidation extends Component {
   }
 
   handleOnchange = (event) => {
-    const { name, value, pattern, min } = event.target;
+    const { name, value, pattern } = event.target;
     console.log("pattern", name, pattern);
     const newValues = { ...this.state.values, [name]: value };
     let newErrors = { ...this.state.errors };

@@ -31,3 +31,11 @@
 
 ==== Buổi 7 =====
     Usermanagement Redux
+
+==== Buổi 8 =====
+    Form Validation
+    Lifecycle: class
+
+==== Buổi 9 =====
+    Call Api
+    Middleware Async Action: redux thunk

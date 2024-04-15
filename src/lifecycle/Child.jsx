@@ -7,6 +7,8 @@ export default class Child extends Component {
       username: "Alice",
       childNumber: 1,
     };
+
+    this.interval = null;
   }
 
   // UNSAFE_componentWillReceiveProps(nexProps) {
@@ -20,6 +22,18 @@ export default class Child extends Component {
     }
 
     return null;
+  }
+
+  componentDidMount(){
+    this.interval = setInterval(()=>{
+      console.log("Hello");
+    }, 1000)
+  }
+
+  componentWillUnmount(){
+    // thực thi khi component bị huỷ
+    console.log("componentWillUnmount");
+    clearInterval(this.interval);
   }
 
   render() {

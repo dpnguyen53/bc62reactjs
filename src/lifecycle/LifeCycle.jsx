@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Child from "./Child";
+import Child2 from "./Child2";
 
 export default class LifeCycle extends Component {
   constructor(props) {
@@ -7,6 +8,7 @@ export default class LifeCycle extends Component {
     console.log("Constructor");
     this.state = {
       number: 1,
+      isHiddenChild: false
     };
   }
 
@@ -63,7 +65,14 @@ export default class LifeCycle extends Component {
           Tăng{" "}
         </button>
         <hr />
-        <Child />
+        {!this.state.isHiddenChild && <Child />}
+        <button className="btn btn-danger" onClick={() => {
+          this.setState({
+            isHiddenChild: true
+          })
+        }}>Delete Child Component</button>
+
+        <Child2 />
       </div>
     );
   }

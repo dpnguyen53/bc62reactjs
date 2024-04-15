@@ -1,6 +1,6 @@
 import "./App.css";
-import FormValidation from "./form-validation/FormValidation";
-import LifeCycle from "./lifecycle/LifeCycle";
+// import FormValidation from "./form-validation/FormValidation";
+// import LifeCycle from "./lifecycle/LifeCycle";
 // import Baitap3 from "./baitap3";
 // import Baitap1 from "./baitap1";
 // import Baitap2 from "./baitap2";
@@ -12,7 +12,8 @@ import LifeCycle from "./lifecycle/LifeCycle";
 // import Communicate from "./communicate";
 // import LiftingStateUpCart from "./shopping-cart";
 // import Home from "./user-management";
-import Home from "./user-management-redux";
+// import Home from "./user-management-redux";
+import ListMovie from "./list-movie";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
       {/* <LiftingStateUpCart /> */}
       {/* <Home /> */}
       {/* <FormValidation /> */}
-      <LifeCycle />
+      {/* <LifeCycle /> */}
+      <ListMovie />
     </>
   );
 }
