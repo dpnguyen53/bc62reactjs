@@ -1,33 +1,11 @@
 import React, { Component } from "react";
 import Movie from "./movie";
-import axios from "axios";
-import {
-  actListMovieRequest,
-  actListMovieSuccess,
-  actListMovieFailed,
-} from "./../store/list-movie/actions";
+import { actFetchListMovie } from "./../store/list-movie/actions";
 import { connect } from "react-redux";
 
 class ListMovie extends Component {
   componentDidMount() {
-    //Pending
-    this.props.listMovieRequest();
-
-    // call api
-    axios({
-      url: "https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
-      method: "GET",
-      headers: {
-        TokenCybersoft:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA2MiIsIkhldEhhblN0cmluZyI6IjE3LzEwLzIwMjQiLCJIZXRIYW5UaW1lIjoiMTcyOTEyMzIwMDAwMCIsIm5iZiI6MTcwMDE1NDAwMCwiZXhwIjoxNzI5MjcwODAwfQ.xKQVYYnO9233wkXRw5oU4Dtx41flqDuUnA0DbkDYRmM",
-      },
-    })
-      .then((result) => {
-        this.props.listMovieSuccess(result.data.content);
-      })
-      .catch((error) => {
-        this.props.listMovieFailed(error);
-      });
+    this.props.fetchData();
   }
 
   renderListMoive = () => {
@@ -58,14 +36,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    listMovieRequest: () => {
-      dispatch(actListMovieRequest());
-    },
-    listMovieSuccess: (data) => {
-      dispatch(actListMovieSuccess(data));
-    },
-    listMovieFailed: (error) => {
-      dispatch(actListMovieFailed(error));
+    fetchData: () => {
+      dispatch(actFetchListMovie());
     },
   };
 };
